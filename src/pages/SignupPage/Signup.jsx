@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import './Signup.css';
+import '../../Signup.css';
 
 function Signup() {
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ function Signup() {
 
     try {
       //API 주소
-      const apiUrl = 'https://www.pre-onboarding-selection-task.shop/api/signup';
+      const apiUrl = 'https://www.pre-onboarding-selection-task.shop/';
 
       // 회원가입 데이터 전송
       const response = await axios.post(apiUrl, formData);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './Signup.css';
+import '../../Signup.css';
 
 
 function Signin (){
@@ -22,7 +22,7 @@ function Signin (){
     event.preventDefault();
     try {
       // API 주소
-      const apiUrl = 'https://www.pre-onboarding-selection-task.shop/api/signin';
+      const apiUrl = 'https://www.pre-onboarding-selection-task.shop/';
 
       // 로그인 데이터 전송
       const response = await axios.post(apiUrl, formData);
