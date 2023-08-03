@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css';
 
 function Signup() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -59,6 +62,9 @@ function Signup() {
       const response = await axios.post(apiUrl, formData);
       console.log('API 호출 성공!!');
       console.log('응답 데이터:', response.data);
+
+      // 회원가입이 정상적으로 완료되었을 때 /signin 경로로 이동
+      navigate('/signin')
     } catch (error) {
       console.error('API 호출 에러', error);
     }
