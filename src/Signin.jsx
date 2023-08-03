@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css';
 
@@ -58,7 +59,10 @@ function Signin (){
             required
           />
         </div>
-        <button type="submit" data-testid="signin-button">로그인</button>        
+        <div className='button-box'>
+          <button type="submit" data-testid="signin-button">로그인</button>
+          <p><Link to='/'>회원이 아니신가요?</Link></p>
+        </div>      
       </form>
     </div>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css';
 
@@ -64,7 +64,7 @@ function Signup() {
       console.log('응답 데이터:', response.data);
 
       // 회원가입이 정상적으로 완료되었을 때 /signin 경로로 이동
-      navigate('/signin')
+      navigate('/signin');
     } catch (error) {
       console.error('API 호출 에러', error);
     }
@@ -108,8 +108,11 @@ function Signup() {
           />
           <div className="error">{errors.password}</div>
         </div>
-        <button type="submit" data-testid="signup-button" disabled={!!errors.email || !!errors.password}>회원가입</button>
-      </form>
+        <div className='button-box'>
+          <button type="submit" data-testid="signup-button" disabled={!!errors.email || !!errors.password}>회원가입</button>
+          <p><Link to='/signin'>이미 회원이신가요?</Link></p>
+        </div>
+        </form>
     </div>
   );
 }
