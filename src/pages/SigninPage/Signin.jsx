@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { SignForm } from '../../components/SignForm/SignForm';
-
+import { api } from '../../utils/api';
 
 function Signin (){
   const navigate = useNavigate();
 
   const handleSubmit = async (formData) => {
     try {
-      // API 주소
-      const apiUrl = 'https://www.pre-onboarding-selection-task.shop/';
-
       // 로그인 데이터 전송
-      const response = await axios.post(apiUrl, formData);
+      const response = await api.post('/auth/signin', {
+        email: formData.email,
+        password: formData.password
+      });
       console.log('API 호출 성공');
       console.log('응답 데이터:', response.data);
+
+      localStorage.setItem('access_token', response.data.access_token);
 
       navigate('/todo')
     } catch (error) {

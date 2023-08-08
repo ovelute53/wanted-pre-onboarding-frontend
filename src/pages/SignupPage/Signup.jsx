@@ -1,6 +1,6 @@
-import React, { Children, useState } from 'react';
+import React, { Children } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../../utils/api';
 import { SignForm } from '../../components/SignForm/SignForm';
 
 function Signup() {
@@ -8,18 +8,18 @@ function Signup() {
 
   const handleSubmit = async (formData) => {
     try {
-      //API 주소
-      const apiUrl = 'https://www.pre-onboarding-selection-task.shop/';
-
       // 회원가입 데이터 전송
-      const response = await axios.post(apiUrl, formData);
+      const response = await api.post('/auth/signup', {
+        email: formData.email,
+        password: formData.password
+      });
       console.log('API 호출 성공!!');
       console.log('응답 데이터:', response.data);
 
       // 회원가입이 정상적으로 완료되었을 때 /signin 경로로 이동
       navigate('/signin');
-    } catch (error) {
-      console.error('API 호출 에러', error);
+    } catch (errors) {
+      console.error('API 호출 에러', errors);
     }
   };
 
