@@ -68,7 +68,7 @@ export function SignForm ({buttonText, onSubmit}){
       {errors.email && <p>{errors.email}</p>}
       {errors.password && <p>{errors.password}</p>}
       <ButtonBox>
-        <ButtonStyle type="submit">{buttonText}</ButtonStyle>
+        <ButtonStyle type="submit" disabled={!!errors.email || !!errors.password}>{buttonText}</ButtonStyle>
       </ButtonBox>
       
     </form>
