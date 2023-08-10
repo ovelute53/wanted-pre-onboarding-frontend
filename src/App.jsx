@@ -7,7 +7,7 @@ import Todo from './pages/TodoPage/Todo';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path='/' element={<Signup />}/>
           <Route path='/signin' element={<Signin />}/>
