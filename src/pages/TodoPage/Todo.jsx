@@ -50,7 +50,6 @@ function Todo (){
     setEditValue('');
   };
 
-  console.log(editValue);
   return (
     <InputBox>
       <h2>할일 목록</h2>
@@ -82,7 +81,7 @@ function Todo (){
             ) : (
               <label>
                 {(idx + 1) + '. '}{todoItem.todo}
-                <ButtonStyle onClick={() => setEditTodo(idx)} data-testid="modify-button">수정</ButtonStyle>
+                <ButtonStyle onClick={() => {setEditTodo(idx); setEditValue(todoItem.todo);}} data-testid="modify-button">수정</ButtonStyle>
                 <ButtonStyle onClick={() => handleDeleteTodo(todoItem.id)}data-testid="delete-button">삭제</ButtonStyle>
               </label>
             )}
