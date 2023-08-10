@@ -26,7 +26,7 @@ function Signin (){
   return (
     <div>
       <h1>SIGN IN</h1>
-      <SignForm buttonText='로그인' onSubmit={handleSubmit} />
+      <SignForm buttonText='로그인' onSubmit={handleSubmit} data-testid="signin-button"/>
       <p><Link to='/'>회원이 아니신가요?</Link></p>
     </div>
   )

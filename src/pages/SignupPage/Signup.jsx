@@ -26,7 +26,8 @@ function Signup() {
   return (
     <div>
       <h1>SIGN UP</h1>
-      <SignForm buttonText='회원가입' onSubmit={handleSubmit} >{Children}</SignForm>
+      <SignForm buttonText='회원가입' onSubmit={handleSubmit} data-testid=
+      "signup-button">{Children}</SignForm>
       <p><Link to='/signin'>이미 회원이신가요?</Link></p>
     </div>
   );
