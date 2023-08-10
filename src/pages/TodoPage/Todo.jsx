@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getTodos, createTodo, deleteTodo, updateTodo } from '../../utils/todoUtils';
 // import { api } from '../../utils/api';
@@ -9,15 +9,28 @@ function Todo (){
   const [editTodo, setEditTodo] = useState(-1);
   const [editValue, setEditValue] = useState('');
 
-  // useEffect(() => {
-  //   // Todo 항목을 조회하여 초기화
-  //   getTodos();
-  // }, []); 
+  useEffect(() => {
+    // Todo 항목을 조회하여 초기화
+    fetchTodos();
+  }, []); 
 
   const fetchTodos = async () => {
     const todos = await getTodos();
     setTodo(todos);
   };
+
+  useEffect(() => {
+    // 로컬 스토리지에서 투두리스트 데이터 가져오기
+    const storedTodo = JSON.parse(localStorage.getItem('todo'));
+    if (storedTodo) {
+      setTodo(storedTodo);
+    }
+  }, []);
+
+  useEffect(() => {
+    // 투두리스트 변경 시 로컬 스토리지에 저장하기
+    localStorage.setItem('todo', JSON.stringify(todo));
+  }, [todo]);
 
   const handleCreateTodo = async () => {
     await createTodo(newTodo);
@@ -37,7 +50,7 @@ function Todo (){
     setEditValue('');
   };
 
-  
+  console.log(editValue);
   return (
     <InputBox>
       <h2>할일 목록</h2>
