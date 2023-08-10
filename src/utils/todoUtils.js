@@ -4,7 +4,7 @@ import { api } from '../utils/api';
 export const getTodos = async () => {
   try {
     const response = await api.get('/todos');
-    return response.data;
+    return response.json;
   } catch (error) {
     console.error('API 호출 에러: ', error);
   }

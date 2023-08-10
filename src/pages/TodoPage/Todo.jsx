@@ -21,9 +21,9 @@ function Todo (){
 
   useEffect(() => {
     // 로컬 스토리지에서 투두리스트 데이터 가져오기
-    const storedTodo = JSON.parse(localStorage.getItem('todo'));
-    if (storedTodo) {
-      setTodo(storedTodo);
+    const storedTodo = localStorage.getItem('todo');
+    if (storedTodo && storedTodo !== 'undefined') {
+      setTodo(JSON.parse(storedTodo));
     }
   }, []);
 
