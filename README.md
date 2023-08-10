@@ -17,6 +17,11 @@ $ npm start
 
 ### 🎥 데모 영상
 
+
+https://github.com/ovelute53/wanted-pre-onboarding-frontend/assets/104200167/31ea58f9-3f40-4532-8b8f-23d6f824bf24
+
+
+
 <br>
 
 ### 🔗 배포 링크
