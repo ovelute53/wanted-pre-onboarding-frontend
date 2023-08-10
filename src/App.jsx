@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './global.css';
 import Signup from './pages/SignupPage/Signup';
 import Signin from './pages/SigninPage/Signin';
@@ -7,7 +7,7 @@ import Todo from './pages/TodoPage/Todo';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename='/wanted-pre-onboarding-frontend'>
         <Routes>
           <Route path='/' element={<Signup />}/>
           <Route path='/signin' element={<Signin />}/>
